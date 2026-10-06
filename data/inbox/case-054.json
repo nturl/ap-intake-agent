@@ -1,0 +1,27 @@
+{
+  "id": "case-054",
+  "from": "invoices@keystonepack.com",
+  "subject": "Invoice KP-5501",
+  "body_text": "Invoice for the bubble wrap restock order.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Keystone Packaging Inc",
+      "invoice_number": "KP-5501",
+      "invoice_date": "2026-06-14",
+      "po_number": "PO-1012",
+      "line_items": [
+        {
+          "description": "Bubble Wrap (roll)",
+          "qty": 10,
+          "unit_price": 24.2,
+          "total": 242.0
+        }
+      ],
+      "subtotal": 242.0,
+      "tax": 0.0,
+      "total": 242.0,
+      "currency": "USD"
+    }
+  }
+}

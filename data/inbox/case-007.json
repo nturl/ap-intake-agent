@@ -1,0 +1,33 @@
+{
+  "id": "case-007",
+  "from": "billing@graniteconstructionsupply.com",
+  "subject": "Invoice INV-1107 \u2014 Granite Construction Supply",
+  "body_text": "Hi AP team,\n\nPlease find our invoice INV-1107 dated 2026-05-07 attached for the recent order against PO-1008. Let us know if you need anything else.\n\nThanks,\nBilling Team\nGranite Construction Supply",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Granite Construction Supply",
+      "invoice_number": "INV-1107",
+      "invoice_date": "2026-05-07",
+      "po_number": "PO-1008",
+      "line_items": [
+        {
+          "description": "Rebar #4 (ton)",
+          "qty": 4,
+          "unit_price": 850.0,
+          "total": 3400.0
+        },
+        {
+          "description": "Ready-Mix Concrete (yd)",
+          "qty": 6,
+          "unit_price": 145.0,
+          "total": 870.0
+        }
+      ],
+      "subtotal": 4270.0,
+      "tax": 0.0,
+      "total": 4270.0,
+      "currency": "USD"
+    }
+  }
+}

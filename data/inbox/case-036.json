@@ -1,0 +1,32 @@
+{
+  "id": "case-036",
+  "from": "billing@cascadeofficesupplies.example",
+  "subject": "Invoice CO-9910",
+  "body_text": "Invoice attached for your recent supply order.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Cascade Office Supplies",
+      "invoice_number": "CO-9910",
+      "invoice_date": "2026-05-30",
+      "po_number": "PO-1004",
+      "line_items": [
+        {
+          "description": "Toner Cartridge",
+          "qty": 2,
+          "unit_price": 89.0,
+          "total": 178.0
+        }
+      ],
+      "subtotal": 178.0,
+      "tax": 0.0,
+      "total": 178.0,
+      "currency": "USD"
+    },
+    "judgment": {
+      "decision": "escalate",
+      "confidence": 0.55,
+      "rationale": "'Cascade Office Supplies' (plural) fuzzy-matches 'Cascade Office Supply' but there may be a distinct, similarly-named competitor in this market; not confident enough to auto-resolve."
+    }
+  }
+}

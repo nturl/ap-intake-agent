@@ -1,0 +1,27 @@
+{
+  "id": "case-018",
+  "from": "billing@falconitservices.com",
+  "subject": "Invoice INV-1118 \u2014 Falcon IT Services",
+  "body_text": "Hi AP team,\n\nPlease find our invoice INV-1118 dated 2026-05-15 attached for the recent order against PO-1007. Let us know if you need anything else.\n\nThanks,\nBilling Team\nFalcon IT Services",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Falcon IT Services",
+      "invoice_number": "INV-1118",
+      "invoice_date": "2026-05-15",
+      "po_number": "PO-1007",
+      "line_items": [
+        {
+          "description": "Managed Support (hr)",
+          "qty": 15,
+          "unit_price": 145.0,
+          "total": 2175.0
+        }
+      ],
+      "subtotal": 2175.0,
+      "tax": 0.0,
+      "total": 2175.0,
+      "currency": "USD"
+    }
+  }
+}

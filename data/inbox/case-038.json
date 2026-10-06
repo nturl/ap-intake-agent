@@ -1,0 +1,38 @@
+{
+  "id": "case-038",
+  "from": "billing@lumenelectrical.com",
+  "subject": "Invoice LE-6602",
+  "body_text": "Invoice for the emergency panel work completed last week.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Lumen Electrical Contractors",
+      "invoice_number": "LE-6602",
+      "invoice_date": "2026-06-02",
+      "po_number": null,
+      "line_items": [
+        {
+          "description": "Panel Upgrade Labor (hr)",
+          "qty": 40,
+          "unit_price": 95.0,
+          "total": 3800.0
+        },
+        {
+          "description": "Wire (500ft spool)",
+          "qty": 10,
+          "unit_price": 210.0,
+          "total": 2100.0
+        }
+      ],
+      "subtotal": 5900.0,
+      "tax": 0.0,
+      "total": 5900.0,
+      "currency": "USD"
+    },
+    "judgment": {
+      "decision": "escalate",
+      "confidence": 0.6,
+      "rationale": "Large one-off invoice with no PO on file; amount is high enough that it should be tracked down or manually authorized rather than assumed low-risk."
+    }
+  }
+}

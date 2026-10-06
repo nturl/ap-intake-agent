@@ -1,0 +1,53 @@
+{
+  "id": "case-028",
+  "from": "scan@officescanner.local",
+  "subject": "Scanned Document 4471",
+  "body_text": "[Image attachment only \u2014 handwritten fax cover sheet, mostly illegible in transmission]",
+  "attachments": [
+    {
+      "filename": "fax_4471.png",
+      "type": "image",
+      "content_text": "[illegible handwritten fax, OCR confidence too low to transcribe]"
+    }
+  ],
+  "_fixture": {
+    "extraction_attempts": [
+      {
+        "vendor_name": "",
+        "invoice_number": "ILLEGIBLE",
+        "invoice_date": "2026-05-22",
+        "po_number": null,
+        "line_items": [
+          {
+            "description": "unclear",
+            "qty": "several",
+            "unit_price": 0,
+            "total": 0
+          }
+        ],
+        "subtotal": 0,
+        "tax": 0,
+        "total": 0,
+        "currency": "USD"
+      },
+      {
+        "vendor_name": "",
+        "invoice_number": "ILLEGIBLE-2",
+        "invoice_date": "2026-05-22",
+        "po_number": null,
+        "line_items": [
+          {
+            "description": "unclear",
+            "qty": "several",
+            "unit_price": 0,
+            "total": 0
+          }
+        ],
+        "subtotal": 0,
+        "tax": 0,
+        "total": 0,
+        "currency": "USD"
+      }
+    ]
+  }
+}

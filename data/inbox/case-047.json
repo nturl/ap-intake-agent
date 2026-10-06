@@ -1,0 +1,33 @@
+{
+  "id": "case-047",
+  "from": "ops@ourcompany.example",
+  "subject": "Fwd: Fwd: Fwd: invoice pls process",
+  "body_text": "Fwd: Fwd: Fwd: invoice pls process\n\n> On Jun 9, 2026, Billing <billing@junipercloud.example> wrote:\n>> Hi, attached is this month's invoice under PO-1011.\n>\n> hey can u process this - sending along, ty\n\nforwarding, see attached ^\n\nGet Outlook for iOS\nCONFIDENTIALITY NOTICE: This message may contain confidential information...",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Juniper Cloud Hosting",
+      "invoice_number": "JC-3390",
+      "invoice_date": "2026-06-09",
+      "po_number": "PO-1011",
+      "line_items": [
+        {
+          "description": "Compute (monthly)",
+          "qty": 1,
+          "unit_price": 1800.0,
+          "total": 1800.0
+        },
+        {
+          "description": "Storage (monthly)",
+          "qty": 1,
+          "unit_price": 220.0,
+          "total": 220.0
+        }
+      ],
+      "subtotal": 2020.0,
+      "tax": 0.0,
+      "total": 2020.0,
+      "currency": "USD"
+    }
+  }
+}

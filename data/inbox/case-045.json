@@ -1,0 +1,32 @@
+{
+  "id": "case-045",
+  "from": "invoices@keystonepack.com",
+  "subject": "Invoice KP-4590",
+  "body_text": "Invoice for the packaging bundle order.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Keystone Packaging Inc",
+      "invoice_number": "KP-4590",
+      "invoice_date": "2026-06-07",
+      "po_number": "PO-1012",
+      "line_items": [
+        {
+          "description": "Corrugated Boxes (bundle)",
+          "qty": 15,
+          "unit_price": 68.0,
+          "total": 1020.0
+        }
+      ],
+      "subtotal": 1020.0,
+      "tax": 0.0,
+      "total": 1020.0,
+      "currency": "USD"
+    },
+    "judgment": {
+      "decision": "approve",
+      "confidence": 0.91,
+      "rationale": "Corrugated box price rose from $60.00 to $68.00 (~13%), a modest and plausible increase in line with general materials inflation."
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "case-016",
+  "from": "billing@deltalogisticsco.com",
+  "subject": "Invoice INV-1116 \u2014 Delta Logistics Co",
+  "body_text": "Hi AP team,\n\nPlease find our invoice INV-1116 dated 2026-05-14 attached for the recent order against PO-1005. Let us know if you need anything else.\n\nThanks,\nBilling Team\nDelta Logistics Co",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Delta Logistics Co",
+      "invoice_number": "INV-1116",
+      "invoice_date": "2026-05-14",
+      "po_number": "PO-1005",
+      "line_items": [
+        {
+          "description": "Freight - Local",
+          "qty": 4,
+          "unit_price": 450.0,
+          "total": 1800.0
+        }
+      ],
+      "subtotal": 1800.0,
+      "tax": 0.0,
+      "total": 1800.0,
+      "currency": "USD"
+    }
+  }
+}

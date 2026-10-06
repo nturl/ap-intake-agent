@@ -1,0 +1,33 @@
+{
+  "id": "case-049",
+  "from": "billing@lumenelectrical.com",
+  "subject": "Invoice attached",
+  "body_text": "Please see attached invoice per our conversation.",
+  "attachments": [
+    {
+      "filename": "LE-7710.pdf",
+      "type": "pdf",
+      "content_text": "Lumen Electrical Contractors\nInvoice LE-7710\nDate 2026-06-12\nPO-1013\n\nLabor: Panel Upgrade - 8 hrs @ $95.00/hr = $760.00\n\nSubtotal $760.00\nTax $0.00\nTotal $760.00"
+    }
+  ],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Lumen Electrical Contractors",
+      "invoice_number": "LE-7710",
+      "invoice_date": "2026-06-12",
+      "po_number": "PO-1013",
+      "line_items": [
+        {
+          "description": "Panel Upgrade Labor (hr)",
+          "qty": 8,
+          "unit_price": 95.0,
+          "total": 760.0
+        }
+      ],
+      "subtotal": 760.0,
+      "tax": 0.0,
+      "total": 760.0,
+      "currency": "USD"
+    }
+  }
+}

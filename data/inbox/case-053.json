@@ -1,0 +1,27 @@
+{
+  "id": "case-053",
+  "from": "billing@cascadesupplies.example",
+  "subject": "Invoice CO-9977",
+  "body_text": "Invoice attached for your recent toner order.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Cascade Supplies",
+      "invoice_number": "CO-9977",
+      "invoice_date": "2026-06-13",
+      "po_number": "PO-1004",
+      "line_items": [
+        {
+          "description": "Toner Cartridge",
+          "qty": 1,
+          "unit_price": 89.0,
+          "total": 89.0
+        }
+      ],
+      "subtotal": 89.0,
+      "tax": 0.0,
+      "total": 89.0,
+      "currency": "USD"
+    }
+  }
+}

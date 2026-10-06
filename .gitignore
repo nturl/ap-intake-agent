@@ -1,0 +1,19 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Runtime-generated state (created by `apintake run`/`review`; not shipped)
+data/audit_trail.jsonl
+data/review_queue.json
+# data/ledger.json is bootstrapped from the tracked data/ledger.seed.json
+data/ledger.json
+
+# macOS
+.DS_Store

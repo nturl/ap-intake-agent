@@ -1,0 +1,27 @@
+{
+  "id": "case-029",
+  "from": "billing@deltalogistics.com",
+  "subject": "Invoice DL-9001",
+  "body_text": "Attached is our invoice for last week's shipments.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Delta Logistics Co",
+      "invoice_number": "DL-9001",
+      "invoice_date": "2026-05-23",
+      "po_number": "PO-1005",
+      "line_items": [
+        {
+          "description": "Freight - Local",
+          "qty": 2,
+          "unit_price": 450.0,
+          "total": 900.0
+        }
+      ],
+      "subtotal": 1200.0,
+      "tax": 0.0,
+      "total": 1200.0,
+      "currency": "USD"
+    }
+  }
+}

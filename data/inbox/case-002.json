@@ -1,0 +1,33 @@
+{
+  "id": "case-002",
+  "from": "billing@boltfastenersllc.com",
+  "subject": "Invoice INV-1102 \u2014 Bolt Fasteners LLC",
+  "body_text": "Hi AP team,\n\nPlease find our invoice INV-1102 dated 2026-05-03 attached for the recent order against PO-1003. Let us know if you need anything else.\n\nThanks,\nBilling Team\nBolt Fasteners LLC",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Bolt Fasteners LLC",
+      "invoice_number": "INV-1102",
+      "invoice_date": "2026-05-03",
+      "po_number": "PO-1003",
+      "line_items": [
+        {
+          "description": "Hex Bolt 1/4in (gross)",
+          "qty": 10,
+          "unit_price": 18.0,
+          "total": 180.0
+        },
+        {
+          "description": "Wing Nut (gross)",
+          "qty": 5,
+          "unit_price": 9.6,
+          "total": 48.0
+        }
+      ],
+      "subtotal": 228.0,
+      "tax": 0.0,
+      "total": 228.0,
+      "currency": "USD"
+    }
+  }
+}

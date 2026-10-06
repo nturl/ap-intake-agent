@@ -1,0 +1,13 @@
+{
+  "id": "case-052",
+  "from": "hr@ourcompany.example",
+  "subject": "All-hands meeting notes + benefits enrollment reminder",
+  "body_text": "Hi all, thanks for joining today's all-hands. Notes are linked below. Also a reminder that open enrollment for benefits closes next Friday \u2014 please complete your elections.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "status": "not_invoice",
+      "reason": "internal HR announcement, misdirected to AP inbox"
+    }
+  }
+}

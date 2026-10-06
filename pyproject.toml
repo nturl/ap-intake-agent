@@ -1,0 +1,20 @@
+[project]
+name = "apintake"
+version = "0.1.0"
+description = "AP invoice-intake agent — FDE demo: deterministic pipeline, LLM only at judgment points, human-in-the-loop approval, full audit trail."
+readme = "README.md"
+authors = [
+    { name = "nturl", email = "34818653+nturl@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.6",
+    "anthropic>=0.68",
+]
+
+[project.scripts]
+apintake = "apintake.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.11.28,<0.12.0"]
+build-backend = "uv_build"

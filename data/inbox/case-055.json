@@ -1,0 +1,32 @@
+{
+  "id": "case-055",
+  "from": "billing@acmecorpinc2.example",
+  "subject": "Invoice AC-8801",
+  "body_text": "Attached is our invoice for the recent widget order.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Acme Corp Inc",
+      "invoice_number": "AC-8801",
+      "invoice_date": "2026-06-15",
+      "po_number": "PO-1001",
+      "line_items": [
+        {
+          "description": "Widget B",
+          "qty": 12,
+          "unit_price": 25.5,
+          "total": 306.0
+        }
+      ],
+      "subtotal": 306.0,
+      "tax": 0.0,
+      "total": 306.0,
+      "currency": "USD"
+    },
+    "judgment": {
+      "decision": "approve",
+      "confidence": 0.85,
+      "rationale": "'Acme Corp Inc' is a very close variant of registered vendor 'Acme Corp'; PO and amounts line up."
+    }
+  }
+}

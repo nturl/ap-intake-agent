@@ -1,0 +1,27 @@
+{
+  "id": "case-056",
+  "from": "billing@cascadeoffice.com",
+  "subject": "Invoice INV-0500",
+  "body_text": "Invoice attached for the recent paper order.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Cascade Office Supply",
+      "invoice_number": "INV-0500",
+      "invoice_date": "2026-06-16",
+      "po_number": "PO-1004",
+      "line_items": [
+        {
+          "description": "Copy Paper (case)",
+          "qty": 5,
+          "unit_price": 32.0,
+          "total": 160.0
+        }
+      ],
+      "subtotal": 160.0,
+      "tax": 0.0,
+      "total": 160.0,
+      "currency": "USD"
+    }
+  }
+}

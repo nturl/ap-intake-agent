@@ -1,0 +1,27 @@
+{
+  "id": "case-021",
+  "from": "billing@ironcladinsurancebrokers.com",
+  "subject": "Invoice INV-1121 \u2014 Ironclad Insurance Brokers",
+  "body_text": "Hi AP team,\n\nPlease find our invoice INV-1121 dated 2026-08-01 attached for the recent order against PO-1010. Let us know if you need anything else.\n\nThanks,\nBilling Team\nIronclad Insurance Brokers",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Ironclad Insurance Brokers",
+      "invoice_number": "INV-1121",
+      "invoice_date": "2026-08-01",
+      "po_number": "PO-1010",
+      "line_items": [
+        {
+          "description": "Quarterly Premium - GL",
+          "qty": 1,
+          "unit_price": 4200.0,
+          "total": 4200.0
+        }
+      ],
+      "subtotal": 4200.0,
+      "tax": 0.0,
+      "total": 4200.0,
+      "currency": "USD"
+    }
+  }
+}

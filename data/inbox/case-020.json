@@ -1,0 +1,27 @@
+{
+  "id": "case-020",
+  "from": "billing@harborprintanddesign.com",
+  "subject": "Invoice INV-1120 \u2014 Harbor Print & Design",
+  "body_text": "Hi AP team,\n\nPlease find our invoice INV-1120 dated 2026-05-17 attached for the recent order against PO-1009. Let us know if you need anything else.\n\nThanks,\nBilling Team\nHarbor Print & Design",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Harbor Print & Design",
+      "invoice_number": "INV-1120",
+      "invoice_date": "2026-05-17",
+      "po_number": "PO-1009",
+      "line_items": [
+        {
+          "description": "Business Cards (1000)",
+          "qty": 3,
+          "unit_price": 95.0,
+          "total": 285.0
+        }
+      ],
+      "subtotal": 285.0,
+      "tax": 0.0,
+      "total": 285.0,
+      "currency": "USD"
+    }
+  }
+}

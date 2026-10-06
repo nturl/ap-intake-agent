@@ -1,0 +1,143 @@
+[
+  {
+    "vendor_id": "V-001",
+    "canonical_name": "Acme Corp",
+    "name_variants": [
+      "Acme Corp",
+      "Acme Corp.",
+      "ACME Corporation"
+    ],
+    "price_history": {
+      "Widget A": 10.0,
+      "Widget B": 25.5
+    }
+  },
+  {
+    "vendor_id": "V-002",
+    "canonical_name": "Bolt Fasteners LLC",
+    "name_variants": [
+      "Bolt Fasteners LLC",
+      "Bolt Fasteners"
+    ],
+    "price_history": {
+      "Hex Bolt 1/4in (gross)": 18.0,
+      "Wing Nut (gross)": 9.6
+    }
+  },
+  {
+    "vendor_id": "V-003",
+    "canonical_name": "Cascade Office Supply",
+    "name_variants": [
+      "Cascade Office Supply",
+      "Cascade Office Supply Inc"
+    ],
+    "price_history": {
+      "Copy Paper (case)": 32.0,
+      "Toner Cartridge": 89.0
+    }
+  },
+  {
+    "vendor_id": "V-004",
+    "canonical_name": "Delta Logistics Co",
+    "name_variants": [
+      "Delta Logistics Co",
+      "Delta Logistics"
+    ],
+    "price_history": {
+      "Freight - Local": 450.0,
+      "Freight - Regional": 1200.0
+    }
+  },
+  {
+    "vendor_id": "V-005",
+    "canonical_name": "Evergreen Facilities Group",
+    "name_variants": [
+      "Evergreen Facilities Group",
+      "Evergreen Facilities"
+    ],
+    "price_history": {
+      "Monthly Janitorial": 2200.0
+    }
+  },
+  {
+    "vendor_id": "V-006",
+    "canonical_name": "Falcon IT Services",
+    "name_variants": [
+      "Falcon IT Services",
+      "Falcon IT Services LLC"
+    ],
+    "price_history": {
+      "Managed Support (hr)": 145.0
+    }
+  },
+  {
+    "vendor_id": "V-007",
+    "canonical_name": "Granite Construction Supply",
+    "name_variants": [
+      "Granite Construction Supply",
+      "Granite Const. Supply"
+    ],
+    "price_history": {
+      "Rebar #4 (ton)": 850.0,
+      "Ready-Mix Concrete (yd)": 145.0
+    }
+  },
+  {
+    "vendor_id": "V-008",
+    "canonical_name": "Harbor Print & Design",
+    "name_variants": [
+      "Harbor Print & Design",
+      "Harbor Print and Design"
+    ],
+    "price_history": {
+      "Business Cards (1000)": 95.0
+    }
+  },
+  {
+    "vendor_id": "V-009",
+    "canonical_name": "Ironclad Insurance Brokers",
+    "name_variants": [
+      "Ironclad Insurance Brokers",
+      "Ironclad Insurance"
+    ],
+    "price_history": {
+      "Quarterly Premium - GL": 4200.0
+    }
+  },
+  {
+    "vendor_id": "V-010",
+    "canonical_name": "Juniper Cloud Hosting",
+    "name_variants": [
+      "Juniper Cloud Hosting",
+      "Juniper Cloud"
+    ],
+    "price_history": {
+      "Compute (monthly)": 1800.0,
+      "Storage (monthly)": 220.0
+    }
+  },
+  {
+    "vendor_id": "V-011",
+    "canonical_name": "Keystone Packaging Inc",
+    "name_variants": [
+      "Keystone Packaging Inc",
+      "Keystone Packaging"
+    ],
+    "price_history": {
+      "Corrugated Boxes (bundle)": 60.0,
+      "Bubble Wrap (roll)": 22.0
+    }
+  },
+  {
+    "vendor_id": "V-012",
+    "canonical_name": "Lumen Electrical Contractors",
+    "name_variants": [
+      "Lumen Electrical Contractors",
+      "Lumen Electrical"
+    ],
+    "price_history": {
+      "Panel Upgrade Labor (hr)": 95.0,
+      "Wire (500ft spool)": 210.0
+    }
+  }
+]

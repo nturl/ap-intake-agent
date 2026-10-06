@@ -1,0 +1,32 @@
+{
+  "id": "case-037",
+  "from": "billing@falconit.com",
+  "subject": "Invoice FI-3301 \u2014 Monthly Support",
+  "body_text": "Here is this month's support invoice \u2014 same recurring arrangement as always.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Falcon IT Services",
+      "invoice_number": "FI-3301",
+      "invoice_date": "2026-06-01",
+      "po_number": null,
+      "line_items": [
+        {
+          "description": "Managed Support (hr)",
+          "qty": 5,
+          "unit_price": 145.0,
+          "total": 725.0
+        }
+      ],
+      "subtotal": 725.0,
+      "tax": 0.0,
+      "total": 725.0,
+      "currency": "USD"
+    },
+    "judgment": {
+      "decision": "approve",
+      "confidence": 0.87,
+      "rationale": "Small recurring managed-support charge consistent with this vendor's historical billing pattern; low risk to approve without a PO on file."
+    }
+  }
+}

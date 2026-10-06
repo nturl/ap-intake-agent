@@ -1,0 +1,27 @@
+{
+  "id": "case-030",
+  "from": "invoices@keystonepack.com",
+  "subject": "Invoice KP-4482",
+  "body_text": "Please process the attached invoice for the packaging order.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Keystone Packaging Inc",
+      "invoice_number": "KP-4482",
+      "invoice_date": "2026-05-24",
+      "po_number": "PO-1012",
+      "line_items": [
+        {
+          "description": "Corrugated Boxes (bundle)",
+          "qty": 10,
+          "unit_price": 60.0,
+          "total": 600.0
+        }
+      ],
+      "subtotal": 600.0,
+      "tax": 48.0,
+      "total": 700.0,
+      "currency": "USD"
+    }
+  }
+}

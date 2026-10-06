@@ -1,0 +1,27 @@
+{
+  "id": "case-017",
+  "from": "billing@evergreenfacilitiesgroup.com",
+  "subject": "Invoice INV-1117 \u2014 Evergreen Facilities Group",
+  "body_text": "Hi AP team,\n\nPlease find our invoice INV-1117 dated 2026-06-01 attached for the recent order against PO-1006. Let us know if you need anything else.\n\nThanks,\nBilling Team\nEvergreen Facilities Group",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Evergreen Facilities Group",
+      "invoice_number": "INV-1117",
+      "invoice_date": "2026-06-01",
+      "po_number": "PO-1006",
+      "line_items": [
+        {
+          "description": "Monthly Janitorial",
+          "qty": 1,
+          "unit_price": 2200.0,
+          "total": 2200.0
+        }
+      ],
+      "subtotal": 2200.0,
+      "tax": 0.0,
+      "total": 2200.0,
+      "currency": "USD"
+    }
+  }
+}

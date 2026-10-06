@@ -1,0 +1,33 @@
+{
+  "id": "case-012",
+  "from": "billing@lumenelectricalcontractors.com",
+  "subject": "Invoice INV-1112 \u2014 Lumen Electrical Contractors",
+  "body_text": "Hi AP team,\n\nPlease find our invoice INV-1112 dated 2026-05-10 attached for the recent order against PO-1013. Let us know if you need anything else.\n\nThanks,\nBilling Team\nLumen Electrical Contractors",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Lumen Electrical Contractors",
+      "invoice_number": "INV-1112",
+      "invoice_date": "2026-05-10",
+      "po_number": "PO-1013",
+      "line_items": [
+        {
+          "description": "Panel Upgrade Labor (hr)",
+          "qty": 12,
+          "unit_price": 95.0,
+          "total": 1140.0
+        },
+        {
+          "description": "Wire (500ft spool)",
+          "qty": 3,
+          "unit_price": 210.0,
+          "total": 630.0
+        }
+      ],
+      "subtotal": 1770.0,
+      "tax": 0.0,
+      "total": 1770.0,
+      "currency": "USD"
+    }
+  }
+}

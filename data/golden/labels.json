@@ -1,0 +1,394 @@
+{
+  "case-001": {
+    "outcome": "auto_posted",
+    "vendor_name": "Acme Corp",
+    "invoice_number": "INV-1101",
+    "total": 910.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-002": {
+    "outcome": "auto_posted",
+    "vendor_name": "Bolt Fasteners LLC",
+    "invoice_number": "INV-1102",
+    "total": 228.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-003": {
+    "outcome": "auto_posted",
+    "vendor_name": "Cascade Office Supply",
+    "invoice_number": "INV-1103",
+    "total": 836.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-004": {
+    "outcome": "auto_posted",
+    "vendor_name": "Delta Logistics Co",
+    "invoice_number": "INV-1104",
+    "total": 3600.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-005": {
+    "outcome": "auto_posted",
+    "vendor_name": "Evergreen Facilities Group",
+    "invoice_number": "INV-1105",
+    "total": 2200.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-006": {
+    "outcome": "auto_posted",
+    "vendor_name": "Falcon IT Services",
+    "invoice_number": "INV-1106",
+    "total": 2900.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-007": {
+    "outcome": "auto_posted",
+    "vendor_name": "Granite Construction Supply",
+    "invoice_number": "INV-1107",
+    "total": 4270.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-008": {
+    "outcome": "auto_posted",
+    "vendor_name": "Harbor Print & Design",
+    "invoice_number": "INV-1108",
+    "total": 190.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-009": {
+    "outcome": "auto_posted",
+    "vendor_name": "Ironclad Insurance Brokers",
+    "invoice_number": "INV-1109",
+    "total": 4200.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-010": {
+    "outcome": "auto_posted",
+    "vendor_name": "Juniper Cloud Hosting",
+    "invoice_number": "INV-1110",
+    "total": 2020.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-011": {
+    "outcome": "auto_posted",
+    "vendor_name": "Keystone Packaging Inc",
+    "invoice_number": "INV-1111",
+    "total": 1420.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-012": {
+    "outcome": "auto_posted",
+    "vendor_name": "Lumen Electrical Contractors",
+    "invoice_number": "INV-1112",
+    "total": 1770.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-013": {
+    "outcome": "auto_posted",
+    "vendor_name": "Acme Corp",
+    "invoice_number": "INV-1113",
+    "total": 250.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-014": {
+    "outcome": "auto_posted",
+    "vendor_name": "Bolt Fasteners LLC",
+    "invoice_number": "INV-1114",
+    "total": 76.8,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-015": {
+    "outcome": "auto_posted",
+    "vendor_name": "Cascade Office Supply",
+    "invoice_number": "INV-1115",
+    "total": 320.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-016": {
+    "outcome": "auto_posted",
+    "vendor_name": "Delta Logistics Co",
+    "invoice_number": "INV-1116",
+    "total": 1800.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-017": {
+    "outcome": "auto_posted",
+    "vendor_name": "Evergreen Facilities Group",
+    "invoice_number": "INV-1117",
+    "total": 2200.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-018": {
+    "outcome": "auto_posted",
+    "vendor_name": "Falcon IT Services",
+    "invoice_number": "INV-1118",
+    "total": 2175.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-019": {
+    "outcome": "auto_posted",
+    "vendor_name": "Granite Construction Supply",
+    "invoice_number": "INV-1119",
+    "total": 1700.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-020": {
+    "outcome": "auto_posted",
+    "vendor_name": "Harbor Print & Design",
+    "invoice_number": "INV-1120",
+    "total": 285.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-021": {
+    "outcome": "auto_posted",
+    "vendor_name": "Ironclad Insurance Brokers",
+    "invoice_number": "INV-1121",
+    "total": 4200.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-022": {
+    "outcome": "auto_posted",
+    "vendor_name": "Juniper Cloud Hosting",
+    "invoice_number": "INV-1122",
+    "total": 1800.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-023": {
+    "outcome": "auto_posted",
+    "vendor_name": "Keystone Packaging Inc",
+    "invoice_number": "INV-1123",
+    "total": 330.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-024": {
+    "outcome": "auto_posted",
+    "vendor_name": "Lumen Electrical Contractors",
+    "invoice_number": "INV-1124",
+    "total": 1050.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-025": {
+    "outcome": "auto_posted",
+    "vendor_name": "Acme Corp",
+    "invoice_number": "INV-1125",
+    "total": 355.0,
+    "notes": "clean happy-path invoice, exact vendor match, valid PO, no issues"
+  },
+  "case-026": {
+    "outcome": "auto_posted",
+    "vendor_name": "Bolt Fasteners LLC",
+    "invoice_number": "BF-CORRECTED-014",
+    "total": 108.0,
+    "notes": "first extraction attempt had null invoice_number (scan artifact); retry with feedback recovered a valid number"
+  },
+  "case-027": {
+    "outcome": "queued_for_review",
+    "vendor_name": null,
+    "invoice_number": null,
+    "total": null,
+    "notes": "both extraction attempts failed schema validation (non-numeric totals from a garbled scan); routed to human per the second-failure rule"
+  },
+  "case-028": {
+    "outcome": "queued_for_review",
+    "vendor_name": null,
+    "invoice_number": null,
+    "total": null,
+    "notes": "quantity field was non-numeric ('several') on both attempts; a human needs to read the original fax"
+  },
+  "case-029": {
+    "outcome": "queued_for_review",
+    "vendor_name": "Delta Logistics Co",
+    "invoice_number": "DL-9001",
+    "total": 1200.0,
+    "notes": "line items sum to 900.00 but stated subtotal is 1200.00 \u2014 deterministic MATH_MISMATCH"
+  },
+  "case-030": {
+    "outcome": "queued_for_review",
+    "vendor_name": "Keystone Packaging Inc",
+    "invoice_number": "KP-4482",
+    "total": 700.0,
+    "notes": "subtotal 600.00 + tax 48.00 = 648.00, but stated total is 700.00 \u2014 deterministic MATH_MISMATCH"
+  },
+  "case-031": {
+    "outcome": "queued_for_review",
+    "vendor_name": "Granite Construction Supply",
+    "invoice_number": "GC-7734",
+    "total": 2900.0,
+    "notes": "line items sum to 2840.00 but stated subtotal is 2900.00 \u2014 deterministic MATH_MISMATCH"
+  },
+  "case-032": {
+    "outcome": "queued_for_review",
+    "vendor_name": "Zephyr Widgets Unlimited",
+    "invoice_number": "ZW-100",
+    "total": 200.0,
+    "notes": "vendor not in vendor master, no fuzzy match candidate \u2014 UNKNOWN_VENDOR"
+  },
+  "case-033": {
+    "outcome": "queued_for_review",
+    "vendor_name": "Quantum Office Solutions",
+    "invoice_number": "QOS-55",
+    "total": 880.0,
+    "notes": "vendor not in vendor master, no fuzzy match candidate \u2014 UNKNOWN_VENDOR"
+  },
+  "case-034": {
+    "outcome": "auto_posted",
+    "vendor_name": "Acme Corp",
+    "invoice_number": "AC-5501",
+    "total": 300.0,
+    "notes": "vendor fuzzy-matched to Acme Corp; judge approved with high confidence"
+  },
+  "case-035": {
+    "outcome": "auto_posted",
+    "vendor_name": "Bolt Fasteners LLC",
+    "invoice_number": "BF-2201",
+    "total": 57.6,
+    "notes": "vendor fuzzy-matched to Bolt Fasteners LLC; judge approved with high confidence"
+  },
+  "case-036": {
+    "outcome": "queued_for_review",
+    "vendor_name": "Cascade Office Supply",
+    "invoice_number": "CO-9910",
+    "total": 178.0,
+    "notes": "vendor fuzzy-matched but judge confidence (0.55) below the 0.85 auto-approval threshold \u2014 escalated"
+  },
+  "case-037": {
+    "outcome": "auto_posted",
+    "vendor_name": "Falcon IT Services",
+    "invoice_number": "FI-3301",
+    "total": 725.0,
+    "notes": "no PO provided; judge approved as a low-risk recurring charge"
+  },
+  "case-038": {
+    "outcome": "queued_for_review",
+    "vendor_name": "Lumen Electrical Contractors",
+    "invoice_number": "LE-6602",
+    "total": 5900.0,
+    "notes": "no PO provided; judge confidence below threshold for a large one-off amount \u2014 escalated"
+  },
+  "case-039": {
+    "outcome": "queued_for_review",
+    "vendor_name": "Acme Corp",
+    "invoice_number": "AC-7701",
+    "total": 1765.0,
+    "notes": "invoice total 1765.00 exceeds PO-1002 remaining balance of 1200.00 \u2014 PO_OVER_BUDGET"
+  },
+  "case-040": {
+    "outcome": "queued_for_review",
+    "vendor_name": "Granite Construction Supply",
+    "invoice_number": "GC-8801",
+    "total": 6840.0,
+    "notes": "invoice total 6840.00 exceeds PO-1008 remaining balance of 5000.00 \u2014 PO_OVER_BUDGET"
+  },
+  "case-041": {
+    "outcome": "queued_for_review",
+    "vendor_name": "Acme Corp",
+    "invoice_number": "INV-0500",
+    "total": 800.0,
+    "notes": "invoice number + vendor already exist in the ledger (posted 2026-06-01) \u2014 DUPLICATE_INVOICE"
+  },
+  "case-042": {
+    "outcome": "queued_for_review",
+    "vendor_name": "Bolt Fasteners LLC",
+    "invoice_number": "INV-0777",
+    "total": 237.6,
+    "notes": "invoice number + vendor already exist in the ledger (posted 2026-06-10) \u2014 DUPLICATE_INVOICE"
+  },
+  "case-043": {
+    "outcome": "auto_posted",
+    "vendor_name": "Cascade Office Supply",
+    "invoice_number": "CO-1145",
+    "total": 315.0,
+    "notes": "18% price drift on Toner Cartridge; judge approved with a documented reason for the increase"
+  },
+  "case-044": {
+    "outcome": "queued_for_review",
+    "vendor_name": "Delta Logistics Co",
+    "invoice_number": "DL-9102",
+    "total": 3800.0,
+    "notes": "58% price drift on Freight - Regional with no justification; judge rejected the auto-approval path"
+  },
+  "case-045": {
+    "outcome": "auto_posted",
+    "vendor_name": "Keystone Packaging Inc",
+    "invoice_number": "KP-4590",
+    "total": 1020.0,
+    "notes": "13% price drift, judge approved as a plausible modest increase"
+  },
+  "case-046": {
+    "outcome": "auto_posted",
+    "vendor_name": "Evergreen Facilities Group",
+    "invoice_number": "EG-2201",
+    "total": 2200.0,
+    "notes": "multiply-forwarded thread with quoting/signatures/disclaimers, but the underlying invoice is clean"
+  },
+  "case-047": {
+    "outcome": "auto_posted",
+    "vendor_name": "Juniper Cloud Hosting",
+    "invoice_number": "JC-3390",
+    "total": 2020.0,
+    "notes": "triple-forwarded thread, informal internal routing, underlying invoice is clean"
+  },
+  "case-048": {
+    "outcome": "auto_posted",
+    "vendor_name": "Harbor Print & Design",
+    "invoice_number": "HP-2210",
+    "total": 95.0,
+    "notes": "body text carries no data at all; full invoice content lives in the attachment"
+  },
+  "case-049": {
+    "outcome": "auto_posted",
+    "vendor_name": "Lumen Electrical Contractors",
+    "invoice_number": "LE-7710",
+    "total": 760.0,
+    "notes": "body text is a one-liner; full invoice content lives in the attachment"
+  },
+  "case-050": {
+    "outcome": "rejected",
+    "vendor_name": null,
+    "invoice_number": null,
+    "total": null,
+    "notes": "marketing newsletter \u2014 classified out, not an invoice"
+  },
+  "case-051": {
+    "outcome": "rejected",
+    "vendor_name": null,
+    "invoice_number": null,
+    "total": null,
+    "notes": "conference marketing email \u2014 classified out, not an invoice"
+  },
+  "case-052": {
+    "outcome": "rejected",
+    "vendor_name": null,
+    "invoice_number": null,
+    "total": null,
+    "notes": "internal HR email misdirected to the AP inbox \u2014 classified out, not an invoice"
+  },
+  "case-053": {
+    "outcome": "auto_posted",
+    "vendor_name": "Cascade Office Supply",
+    "invoice_number": "CO-9977",
+    "total": 89.0,
+    "notes": "BOUNDARY CASE: naive expectation is 'Cascade Supplies' should fuzzy-match 'Cascade Office Supply' and judge-approve; actual normalized similarity (0.703) falls just under FUZZY_MATCH_CUTOFF=0.72, so find_vendor() returns no match at all and it hits UNKNOWN_VENDOR (blocking error) instead of ever reaching judge. See eval_report.md investigation."
+  },
+  "case-054": {
+    "outcome": "queued_for_review",
+    "vendor_name": "Keystone Packaging Inc",
+    "invoice_number": "KP-5501",
+    "total": 242.0,
+    "notes": "BOUNDARY CASE: unit price moved exactly 10.0% (22.00 -> 24.20); naive golden label assumed a round-number 10% jump would still get a second look, but validate.py's PRICE_DRIFT check is strictly '> 0.10', so exactly 10.0% does not trigger it and the case auto-posts with zero issues. See eval_report.md investigation."
+  },
+  "case-055": {
+    "outcome": "queued_for_review",
+    "vendor_name": "Acme Corp",
+    "invoice_number": "AC-8801",
+    "total": 306.0,
+    "notes": "BOUNDARY CASE: naive golden label assumed confidence must be STRICTLY greater than 0.85 to auto-approve; judge.py's documented threshold is confidence >= 0.85, so this case actually auto-posts. On review this is a golden-label authoring error, not a system bug \u2014 see eval_report.md investigation."
+  },
+  "case-056": {
+    "outcome": "queued_for_review",
+    "vendor_name": "Cascade Office Supply",
+    "invoice_number": "INV-0500",
+    "total": 160.0,
+    "notes": "BOUNDARY CASE: invoice number 'INV-0500' coincidentally matches a ledger entry already posted for a DIFFERENT vendor (Acme Corp). Naive golden label assumed any invoice-number collision should be flagged; actual duplicate check is scoped to (vendor_name, invoice_number) pairs, per the DUPLICATE_INVOICE check in validate.py, so a different vendor with the same number does not trigger it and the case auto-posts. This is a real, documented scope limitation (see decision-log.md) rather than a bug \u2014 cross-vendor number collisions are common in practice and vendor-scoping is the correct default, but it's worth knowing the check won't catch this class."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "case-039",
+  "from": "billing@acmecorp.com",
+  "subject": "Invoice AC-7701",
+  "body_text": "Invoice attached against PO-1002.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Acme Corp",
+      "invoice_number": "AC-7701",
+      "invoice_date": "2026-06-03",
+      "po_number": "PO-1002",
+      "line_items": [
+        {
+          "description": "Widget A",
+          "qty": 100,
+          "unit_price": 10.0,
+          "total": 1000.0
+        },
+        {
+          "description": "Widget B",
+          "qty": 30,
+          "unit_price": 25.5,
+          "total": 765.0
+        }
+      ],
+      "subtotal": 1765.0,
+      "tax": 0.0,
+      "total": 1765.0,
+      "currency": "USD"
+    }
+  }
+}

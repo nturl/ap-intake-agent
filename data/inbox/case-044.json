@@ -1,0 +1,32 @@
+{
+  "id": "case-044",
+  "from": "billing@deltalogistics.com",
+  "subject": "Invoice DL-9102",
+  "body_text": "Invoice for the two regional shipments last week.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Delta Logistics Co",
+      "invoice_number": "DL-9102",
+      "invoice_date": "2026-06-06",
+      "po_number": "PO-1005",
+      "line_items": [
+        {
+          "description": "Freight - Regional",
+          "qty": 2,
+          "unit_price": 1900.0,
+          "total": 3800.0
+        }
+      ],
+      "subtotal": 3800.0,
+      "tax": 0.0,
+      "total": 3800.0,
+      "currency": "USD"
+    },
+    "judgment": {
+      "decision": "reject",
+      "confidence": 0.82,
+      "rationale": "Regional freight unit price jumped from $1200.00 to $1900.00 (~58%) with no explanation in the message \u2014 too large and unexplained to approve automatically."
+    }
+  }
+}

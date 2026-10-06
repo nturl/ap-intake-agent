@@ -1,0 +1,32 @@
+{
+  "id": "case-035",
+  "from": "invoices@boltfastenersllc.example",
+  "subject": "Invoice BF-2201",
+  "body_text": "Please see the attached invoice for your recent order.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Bolt Fastener's LLC",
+      "invoice_number": "BF-2201",
+      "invoice_date": "2026-05-29",
+      "po_number": "PO-1003",
+      "line_items": [
+        {
+          "description": "Wing Nut (gross)",
+          "qty": 6,
+          "unit_price": 9.6,
+          "total": 57.6
+        }
+      ],
+      "subtotal": 57.6,
+      "tax": 0.0,
+      "total": 57.6,
+      "currency": "USD"
+    },
+    "judgment": {
+      "decision": "approve",
+      "confidence": 0.88,
+      "rationale": "Apostrophe variant of 'Bolt Fasteners LLC', same PO and consistent item pricing \u2014 safe to treat as the same vendor."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "case-051",
+  "from": "events@industryconf.example",
+  "subject": "Early bird pricing ends Friday \u2014 join us in Austin!",
+  "body_text": "Don't miss out on early bird registration for the 2026 Industry Leaders Summit. Register now to save $200. Speakers include...",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "status": "not_invoice",
+      "reason": "conference registration marketing email"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "case-027",
+  "from": "ap-noreply@cascadeoffice.example",
+  "subject": "Statement",
+  "body_text": "Please see attached statement for your account. Balance and invoice details are on the enclosed PDF (scan quality is poor, apologies).",
+  "attachments": [],
+  "_fixture": {
+    "extraction_attempts": [
+      {
+        "vendor_name": "Cascade Office Supply",
+        "invoice_number": null,
+        "invoice_date": "",
+        "po_number": null,
+        "line_items": [],
+        "subtotal": "see attached",
+        "tax": 0,
+        "total": "see attached",
+        "currency": "USD"
+      },
+      {
+        "vendor_name": "Cascade Office Supply",
+        "invoice_number": null,
+        "invoice_date": "2026-05",
+        "po_number": null,
+        "line_items": [],
+        "subtotal": 0,
+        "tax": 0,
+        "total": "TBD",
+        "currency": "USD"
+      }
+    ]
+  }
+}

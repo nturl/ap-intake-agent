@@ -1,0 +1,33 @@
+{
+  "id": "case-003",
+  "from": "billing@cascadeofficesupply.com",
+  "subject": "Invoice INV-1103 \u2014 Cascade Office Supply",
+  "body_text": "Hi AP team,\n\nPlease find our invoice INV-1103 dated 2026-05-04 attached for the recent order against PO-1004. Let us know if you need anything else.\n\nThanks,\nBilling Team\nCascade Office Supply",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Cascade Office Supply",
+      "invoice_number": "INV-1103",
+      "invoice_date": "2026-05-04",
+      "po_number": "PO-1004",
+      "line_items": [
+        {
+          "description": "Copy Paper (case)",
+          "qty": 15,
+          "unit_price": 32.0,
+          "total": 480.0
+        },
+        {
+          "description": "Toner Cartridge",
+          "qty": 4,
+          "unit_price": 89.0,
+          "total": 356.0
+        }
+      ],
+      "subtotal": 836.0,
+      "tax": 0.0,
+      "total": 836.0,
+      "currency": "USD"
+    }
+  }
+}

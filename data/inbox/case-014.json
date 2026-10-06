@@ -1,0 +1,27 @@
+{
+  "id": "case-014",
+  "from": "billing@boltfastenersllc.com",
+  "subject": "Invoice INV-1114 \u2014 Bolt Fasteners LLC",
+  "body_text": "Hi AP team,\n\nPlease find our invoice INV-1114 dated 2026-05-12 attached for the recent order against PO-1015. Let us know if you need anything else.\n\nThanks,\nBilling Team\nBolt Fasteners LLC",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Bolt Fasteners LLC",
+      "invoice_number": "INV-1114",
+      "invoice_date": "2026-05-12",
+      "po_number": "PO-1015",
+      "line_items": [
+        {
+          "description": "Wing Nut (gross)",
+          "qty": 8,
+          "unit_price": 9.6,
+          "total": 76.8
+        }
+      ],
+      "subtotal": 76.8,
+      "tax": 0.0,
+      "total": 76.8,
+      "currency": "USD"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "invoice_number": "INV-0500",
+    "vendor_name": "Acme Corp",
+    "total": 800.0,
+    "currency": "USD",
+    "po_number": "PO-1001",
+    "posted_ts": "2026-06-01T10:00:00Z"
+  },
+  {
+    "invoice_number": "INV-0777",
+    "vendor_name": "Bolt Fasteners LLC",
+    "total": 240.0,
+    "currency": "USD",
+    "po_number": "PO-1003",
+    "posted_ts": "2026-06-10T14:30:00Z"
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "id": "case-010",
+  "from": "billing@junipercloudhosting.com",
+  "subject": "Invoice INV-1110 \u2014 Juniper Cloud Hosting",
+  "body_text": "Hi AP team,\n\nPlease find our invoice INV-1110 dated 2026-05-01 attached for the recent order against PO-1011. Let us know if you need anything else.\n\nThanks,\nBilling Team\nJuniper Cloud Hosting",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Juniper Cloud Hosting",
+      "invoice_number": "INV-1110",
+      "invoice_date": "2026-05-01",
+      "po_number": "PO-1011",
+      "line_items": [
+        {
+          "description": "Compute (monthly)",
+          "qty": 1,
+          "unit_price": 1800.0,
+          "total": 1800.0
+        },
+        {
+          "description": "Storage (monthly)",
+          "qty": 1,
+          "unit_price": 220.0,
+          "total": 220.0
+        }
+      ],
+      "subtotal": 2020.0,
+      "tax": 0.0,
+      "total": 2020.0,
+      "currency": "USD"
+    }
+  }
+}

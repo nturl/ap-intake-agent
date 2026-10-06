@@ -1,0 +1,47 @@
+{
+  "id": "case-026",
+  "from": "orders@boltfasteners.com",
+  "subject": "re: fwd: order stuff",
+  "body_text": "hey attached is the thing from last week. paper jammed on the scan, sorry - some of it prob didnt come thru clean. lmk if u need the rest",
+  "attachments": [],
+  "_fixture": {
+    "extraction_attempts": [
+      {
+        "vendor_name": "Bolt Fasteners LLC",
+        "invoice_number": null,
+        "invoice_date": "2026-05-21",
+        "po_number": "PO-1003",
+        "line_items": [
+          {
+            "description": "Hex Bolt 1/4in (gross)",
+            "qty": 6,
+            "unit_price": 18.0,
+            "total": 108.0
+          }
+        ],
+        "subtotal": 108.0,
+        "tax": 0.0,
+        "total": 108.0,
+        "currency": "USD"
+      },
+      {
+        "vendor_name": "Bolt Fasteners LLC",
+        "invoice_number": "BF-CORRECTED-014",
+        "invoice_date": "2026-05-21",
+        "po_number": "PO-1003",
+        "line_items": [
+          {
+            "description": "Hex Bolt 1/4in (gross)",
+            "qty": 6,
+            "unit_price": 18.0,
+            "total": 108.0
+          }
+        ],
+        "subtotal": 108.0,
+        "tax": 0.0,
+        "total": 108.0,
+        "currency": "USD"
+      }
+    ]
+  }
+}

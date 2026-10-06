@@ -1,0 +1,27 @@
+{
+  "id": "case-041",
+  "from": "billing@acmecorp.com",
+  "subject": "Invoice INV-0500 (resend)",
+  "body_text": "Resending in case our last email got lost \u2014 invoice attached.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Acme Corp",
+      "invoice_number": "INV-0500",
+      "invoice_date": "2026-06-01",
+      "po_number": "PO-1001",
+      "line_items": [
+        {
+          "description": "Widget A",
+          "qty": 80,
+          "unit_price": 10.0,
+          "total": 800.0
+        }
+      ],
+      "subtotal": 800.0,
+      "tax": 0.0,
+      "total": 800.0,
+      "currency": "USD"
+    }
+  }
+}

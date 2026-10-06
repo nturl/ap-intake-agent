@@ -1,0 +1,27 @@
+{
+  "id": "case-033",
+  "from": "sales@quantumoffice.example",
+  "subject": "Invoice QOS-55",
+  "body_text": "Invoice attached for the recent office furniture order.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Quantum Office Solutions",
+      "invoice_number": "QOS-55",
+      "invoice_date": "2026-05-27",
+      "po_number": null,
+      "line_items": [
+        {
+          "description": "Office Chairs",
+          "qty": 4,
+          "unit_price": 220.0,
+          "total": 880.0
+        }
+      ],
+      "subtotal": 880.0,
+      "tax": 0.0,
+      "total": 880.0,
+      "currency": "USD"
+    }
+  }
+}

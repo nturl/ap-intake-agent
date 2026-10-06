@@ -1,0 +1,13 @@
+{
+  "id": "case-050",
+  "from": "newsletter@saastoolhq.example",
+  "subject": "5 productivity hacks your team needs this month",
+  "body_text": "Hey there! Here are this month's top 5 tips for getting more out of your workflow... Unsubscribe | View in browser | (c) 2026 SaaSToolHQ",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "status": "not_invoice",
+      "reason": "marketing newsletter, no billing content"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "case-031",
+  "from": "ap@graniteconstruction.com",
+  "subject": "Invoice GC-7734",
+  "body_text": "Invoice for materials delivered to the Route 9 site.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Granite Construction Supply",
+      "invoice_number": "GC-7734",
+      "invoice_date": "2026-05-25",
+      "po_number": "PO-1008",
+      "line_items": [
+        {
+          "description": "Rebar #4 (ton)",
+          "qty": 3,
+          "unit_price": 850.0,
+          "total": 2550.0
+        },
+        {
+          "description": "Ready-Mix Concrete (yd)",
+          "qty": 2,
+          "unit_price": 145.0,
+          "total": 290.0
+        }
+      ],
+      "subtotal": 2900.0,
+      "tax": 0.0,
+      "total": 2900.0,
+      "currency": "USD"
+    }
+  }
+}

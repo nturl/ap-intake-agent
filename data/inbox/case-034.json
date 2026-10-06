@@ -1,0 +1,32 @@
+{
+  "id": "case-034",
+  "from": "billing@acmecorpco.example",
+  "subject": "Invoice AC-5501",
+  "body_text": "Attached is our latest invoice per our standing order.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Acme Corp Co",
+      "invoice_number": "AC-5501",
+      "invoice_date": "2026-05-28",
+      "po_number": "PO-1001",
+      "line_items": [
+        {
+          "description": "Widget A",
+          "qty": 30,
+          "unit_price": 10.0,
+          "total": 300.0
+        }
+      ],
+      "subtotal": 300.0,
+      "tax": 0.0,
+      "total": 300.0,
+      "currency": "USD"
+    },
+    "judgment": {
+      "decision": "approve",
+      "confidence": 0.9,
+      "rationale": "'Acme Corp Co' is a plausible name variant of registered vendor 'Acme Corp'; PO, amounts, and items all line up with the existing relationship."
+    }
+  }
+}

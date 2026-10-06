@@ -1,0 +1,27 @@
+{
+  "id": "case-032",
+  "from": "billing@zephyrwidgets.example",
+  "subject": "Invoice ZW-100",
+  "body_text": "Please find attached our invoice for recent parts order.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Zephyr Widgets Unlimited",
+      "invoice_number": "ZW-100",
+      "invoice_date": "2026-05-26",
+      "po_number": null,
+      "line_items": [
+        {
+          "description": "Assorted Parts",
+          "qty": 5,
+          "unit_price": 40.0,
+          "total": 200.0
+        }
+      ],
+      "subtotal": 200.0,
+      "tax": 0.0,
+      "total": 200.0,
+      "currency": "USD"
+    }
+  }
+}

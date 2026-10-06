@@ -1,0 +1,27 @@
+{
+  "id": "case-046",
+  "from": "priya@evergreenfacilities.example",
+  "subject": "Fwd: Fwd: RE: June invoice",
+  "body_text": "---------- Forwarded message ---------\nFrom: Priya Nair <priya@evergreenfacilities.example>\nDate: Mon, Jun 8, 2026 at 9:14 AM\nSubject: Fwd: Fwd: RE: June invoice\n\n> ---------- Forwarded message ---------\n> From: AP Bot <no-reply@evergreenfacilities.example>\n> Subject: RE: June invoice\n>\n> > Hi team, please find attached our invoice for June janitorial services under PO-1006.\n> > Let us know if there are any questions.\n>\n> Can someone forward this to AP? Thanks \u2014 P\n\nForwarding as requested, see below and attached.\n\n--\nSent from my iPhone\nThis email and any attachments are confidential and intended solely for the addressee.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Evergreen Facilities Group",
+      "invoice_number": "EG-2201",
+      "invoice_date": "2026-06-08",
+      "po_number": "PO-1006",
+      "line_items": [
+        {
+          "description": "Monthly Janitorial",
+          "qty": 1,
+          "unit_price": 2200.0,
+          "total": 2200.0
+        }
+      ],
+      "subtotal": 2200.0,
+      "tax": 0.0,
+      "total": 2200.0,
+      "currency": "USD"
+    }
+  }
+}

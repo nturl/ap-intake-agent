@@ -1,0 +1,33 @@
+{
+  "id": "case-011",
+  "from": "billing@keystonepackaginginc.com",
+  "subject": "Invoice INV-1111 \u2014 Keystone Packaging Inc",
+  "body_text": "Hi AP team,\n\nPlease find our invoice INV-1111 dated 2026-05-09 attached for the recent order against PO-1012. Let us know if you need anything else.\n\nThanks,\nBilling Team\nKeystone Packaging Inc",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Keystone Packaging Inc",
+      "invoice_number": "INV-1111",
+      "invoice_date": "2026-05-09",
+      "po_number": "PO-1012",
+      "line_items": [
+        {
+          "description": "Corrugated Boxes (bundle)",
+          "qty": 20,
+          "unit_price": 60.0,
+          "total": 1200.0
+        },
+        {
+          "description": "Bubble Wrap (roll)",
+          "qty": 10,
+          "unit_price": 22.0,
+          "total": 220.0
+        }
+      ],
+      "subtotal": 1420.0,
+      "tax": 0.0,
+      "total": 1420.0,
+      "currency": "USD"
+    }
+  }
+}

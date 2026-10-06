@@ -1,0 +1,33 @@
+{
+  "id": "case-048",
+  "from": "orders@harborprint.com",
+  "subject": "Your invoice is attached",
+  "body_text": "See attached.",
+  "attachments": [
+    {
+      "filename": "HP-2210.pdf",
+      "type": "pdf",
+      "content_text": "HARBOR PRINT & DESIGN\nInvoice #HP-2210\nDate: 2026-06-11\nPO: PO-1009\n\n1000 Business Cards - Standard Matte .......... $95.00\n\nSubtotal: $95.00\nTax: $0.00\nTotal: $95.00\n\nRemit payment within 30 days."
+    }
+  ],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Harbor Print & Design",
+      "invoice_number": "HP-2210",
+      "invoice_date": "2026-06-11",
+      "po_number": "PO-1009",
+      "line_items": [
+        {
+          "description": "Business Cards (1000)",
+          "qty": 1,
+          "unit_price": 95.0,
+          "total": 95.0
+        }
+      ],
+      "subtotal": 95.0,
+      "tax": 0.0,
+      "total": 95.0,
+      "currency": "USD"
+    }
+  }
+}

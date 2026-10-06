@@ -1,0 +1,33 @@
+{
+  "id": "case-042",
+  "from": "invoices@boltfasteners.com",
+  "subject": "Invoice INV-0777",
+  "body_text": "Please find attached invoice for the recent order.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Bolt Fasteners LLC",
+      "invoice_number": "INV-0777",
+      "invoice_date": "2026-06-10",
+      "po_number": "PO-1003",
+      "line_items": [
+        {
+          "description": "Hex Bolt 1/4in (gross)",
+          "qty": 10,
+          "unit_price": 18.0,
+          "total": 180.0
+        },
+        {
+          "description": "Wing Nut (gross)",
+          "qty": 6,
+          "unit_price": 9.6,
+          "total": 57.6
+        }
+      ],
+      "subtotal": 237.6,
+      "tax": 0.0,
+      "total": 237.6,
+      "currency": "USD"
+    }
+  }
+}

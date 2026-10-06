@@ -1,0 +1,32 @@
+{
+  "id": "case-043",
+  "from": "billing@cascadeoffice.com",
+  "subject": "Invoice CO-1145",
+  "body_text": "Invoice for the toner order \u2014 heads up, our supplier raised prices this quarter.",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Cascade Office Supply",
+      "invoice_number": "CO-1145",
+      "invoice_date": "2026-06-05",
+      "po_number": "PO-1004",
+      "line_items": [
+        {
+          "description": "Toner Cartridge",
+          "qty": 3,
+          "unit_price": 105.0,
+          "total": 315.0
+        }
+      ],
+      "subtotal": 315.0,
+      "tax": 0.0,
+      "total": 315.0,
+      "currency": "USD"
+    },
+    "judgment": {
+      "decision": "approve",
+      "confidence": 0.86,
+      "rationale": "Toner unit price rose from $89.00 to $105.00 (~18%); vendor's message explains a supplier-side price increase, and the amount is modest \u2014 plausible, approving."
+    }
+  }
+}

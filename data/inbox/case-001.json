@@ -1,0 +1,33 @@
+{
+  "id": "case-001",
+  "from": "billing@acmecorp.com",
+  "subject": "Invoice INV-1101 \u2014 Acme Corp",
+  "body_text": "Hi AP team,\n\nPlease find our invoice INV-1101 dated 2026-05-02 attached for the recent order against PO-1001. Let us know if you need anything else.\n\nThanks,\nBilling Team\nAcme Corp",
+  "attachments": [],
+  "_fixture": {
+    "extraction": {
+      "vendor_name": "Acme Corp",
+      "invoice_number": "INV-1101",
+      "invoice_date": "2026-05-02",
+      "po_number": "PO-1001",
+      "line_items": [
+        {
+          "description": "Widget A",
+          "qty": 40,
+          "unit_price": 10.0,
+          "total": 400.0
+        },
+        {
+          "description": "Widget B",
+          "qty": 20,
+          "unit_price": 25.5,
+          "total": 510.0
+        }
+      ],
+      "subtotal": 910.0,
+      "tax": 0.0,
+      "total": 910.0,
+      "currency": "USD"
+    }
+  }
+}
