@@ -1,0 +1,85 @@
+# apintake demo, mock mode, no API key
+
+$ uv run apintake run --mock data/inbox/case-001.json
+[case-001] -> auto_posted
+    - No validation issues; auto-posted.
+
+$ uv run apintake trail case-001
+[2026-10-06T04:21:16.102225+00:00] ingest     actor=deterministic case_loaded
+    {"from": "billing@acmecorp.com", "subject": "Invoice INV-1101 \u2014 Acme Corp", "attachments": 0}
+[2026-10-06T04:21:16.102681+00:00] extract    actor=llm           extraction_ok
+    {"attempts": 1, "reason": null}
+[2026-10-06T04:21:16.103268+00:00] validate   actor=deterministic validation_complete
+    {"issues": []}
+[2026-10-06T04:21:16.103512+00:00] post       actor=deterministic auto_posted
+    {"ledger_entry": {"invoice_number": "INV-1101", "vendor_name": "Acme Corp", "total": 910.0, "currency": "USD", "po_number": "PO-1001", "posted_ts": "2026-10-06T04:21:16.103382+00:00"}}
+[2026-10-06T04:21:16.103581+00:00] pipeline   actor=deterministic outcome_auto_posted
+    {"case_id": "case-001", "outcome": "auto_posted", "reasons": ["No validation issues; auto-posted."]}
+
+$ uv run apintake run --mock data/inbox/case-030.json
+[case-030] -> queued_for_review
+    - Subtotal (600.00) + tax (48.00) = 648.00, but total states 700.00.
+
+$ uv run apintake trail case-030
+[2026-10-06T04:21:22.389532+00:00] ingest     actor=deterministic case_loaded
+    {"from": "invoices@keystonepack.com", "subject": "Invoice KP-4482", "attachments": 0}
+[2026-10-06T04:21:22.390038+00:00] extract    actor=llm           extraction_ok
+    {"attempts": 1, "reason": null}
+[2026-10-06T04:21:22.390568+00:00] validate   actor=deterministic validation_complete
+    {"issues": [{"code": "MATH_MISMATCH", "severity": "error", "message": "Subtotal (600.00) + tax (48.00) = 648.00, but total states 700.00."}]}
+[2026-10-06T04:21:22.391183+00:00] pipeline   actor=deterministic outcome_queued_blocking_errors
+    {"case_id": "case-030", "outcome": "queued_for_review", "reasons": ["Subtotal (600.00) + tax (48.00) = 648.00, but total states 700.00."]}
+
+$ uv run apintake eval --mock
+# AP Intake Agent — Eval Report
+
+Mode: mock (fixture-driven, hermetic)
+Cases evaluated: 56
+**Overall pass rate: 52/56 (92.9%)**
+
+## Per-category breakdown
+
+| Category | Passed | Total | Pass rate |
+|---|---|---|---|
+| happy_path | 25 | 25 | 100% |
+| malformed_missing_fields | 3 | 3 | 100% |
+| math_mismatch | 3 | 3 | 100% |
+| unknown_vendor | 2 | 2 | 100% |
+| vendor_fuzzy_match | 3 | 3 | 100% |
+| missing_po | 2 | 2 | 100% |
+| po_over_budget | 2 | 2 | 100% |
+| duplicate_invoice | 2 | 2 | 100% |
+| price_drift | 3 | 3 | 100% |
+| forwarded_thread_noise | 2 | 2 | 100% |
+| attachment_only | 2 | 2 | 100% |
+| non_invoice | 3 | 3 | 100% |
+| boundary_threshold_cases | 0 | 4 | 0% |
+
+## Investigation — 4 failing case(s)
+
+### case-053 (boundary_threshold_cases)
+- **Mismatch**: outcome: expected 'auto_posted', got 'queued_for_review'
+- **Root cause**: BOUNDARY CASE: naive expectation is 'Cascade Supplies' should fuzzy-match 'Cascade Office Supply' and judge-approve; actual normalized similarity (0.703) falls just under FUZZY_MATCH_CUTOFF=0.72, so find_vendor() returns no match at all and it hits UNKNOWN_VENDOR (blocking error) instead of ever reaching judge. See eval_report.md investigation.
+
+### case-054 (boundary_threshold_cases)
+- **Mismatch**: outcome: expected 'queued_for_review', got 'auto_posted'
+- **Root cause**: BOUNDARY CASE: unit price moved exactly 10.0% (22.00 -> 24.20); naive golden label assumed a round-number 10% jump would still get a second look, but validate.py's PRICE_DRIFT check is strictly '> 0.10', so exactly 10.0% does not trigger it and the case auto-posts with zero issues. See eval_report.md investigation.
+
+### case-055 (boundary_threshold_cases)
+- **Mismatch**: outcome: expected 'queued_for_review', got 'auto_posted'
+- **Root cause**: BOUNDARY CASE: naive golden label assumed confidence must be STRICTLY greater than 0.85 to auto-approve; judge.py's documented threshold is confidence >= 0.85, so this case actually auto-posts. On review this is a golden-label authoring error, not a system bug — see eval_report.md investigation.
+
+### case-056 (boundary_threshold_cases)
+- **Mismatch**: outcome: expected 'queued_for_review', got 'auto_posted'
+- **Root cause**: BOUNDARY CASE: invoice number 'INV-0500' coincidentally matches a ledger entry already posted for a DIFFERENT vendor (Acme Corp). Naive golden label assumed any invoice-number collision should be flagged; actual duplicate check is scoped to (vendor_name, invoice_number) pairs, per the DUPLICATE_INVOICE check in validate.py, so a different vendor with the same number does not trigger it and the case auto-posts. This is a real, documented scope limitation (see decision-log.md) rather than a bug — cross-vendor number collisions are common in practice and vendor-scoping is the correct default, but it's worth knowing the check won't catch this class.
+
+## How to read this report
+
+Every failing case above is a genuine, traced root cause — not noise. Four of them (the `boundary_threshold_cases` category) are *deliberately* included: each one sits exactly on a documented threshold (fuzzy-match cutoff, price-drift percentage, judgment confidence, duplicate-detection scope) where a naive human expectation differs from the system's actual, documented behavior. See docs/decision-log.md for the full reasoning on each threshold. A production rollout would review these four specifically: two are threshold-tuning candidates, one is a golden-label authoring bug (not a system bug), and one is a scoping decision worth a product conversation.
+
+
+Report written to /Users/noelturlington/Claude/fde/ap-intake-agent/evals/eval_report.md
+
+$ grep -n "Overall pass rate" evals/eval_report.md
+5:**Overall pass rate: 52/56 (92.9%)**
+

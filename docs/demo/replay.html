@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>apintake demo replay</title>
+<style>
+:root{
+  color-scheme: dark;
+  --ground:#161c26; --body-text:#d9dde4; --dim:#7c8696;
+  --accent:#7fc4e8; --bar:#232b38; --bar-text:#8d97a7;
+  --ok:#9fd4a3; --warn:#e6c07b; --edge:#2c3544;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--ground);overflow:hidden}
+body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--body-text)}
+.win{display:flex;flex-direction:column;height:100vh;width:100vw}
+.bar{flex:0 0 32px;background:var(--bar);border-bottom:1px solid var(--edge);display:flex;align-items:center;justify-content:center;position:relative;color:var(--bar-text);font-size:13px;letter-spacing:.02em}
+.dots{position:absolute;left:14px;display:flex;gap:8px}
+.dots i{width:11px;height:11px;border-radius:50%;background:var(--edge);display:block}
+.term{flex:1;overflow:hidden;position:relative;padding:18px 26px}
+#out{font-size:15px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere;will-change:transform}
+.ln{min-height:1.5em}
+.cmt{color:var(--dim)}
+.cmd{color:var(--accent)}
+.ok{color:var(--ok)}
+.warn{color:var(--warn)}
+.hi{color:var(--accent);font-weight:600}
+.cur{display:inline-block;width:.6em;height:1.15em;vertical-align:-.2em;background:var(--accent);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+</style></head>
+<body>
+<div class="win">
+  <div class="bar"><span class="dots"><i></i><i></i><i></i></span>apintake demo (mock mode, no API key)</div>
+  <div class="term" id="term"><div id="out"></div></div>
+</div>
+<script>
+const TS = "# apintake demo, mock mode, no API key\n\n$ uv run apintake run --mock data/inbox/case-001.json\n[case-001] -> auto_posted\n    - No validation issues; auto-posted.\n\n$ uv run apintake trail case-001\n[2026-10-06T04:21:16.102225+00:00] ingest     actor=deterministic case_loaded\n    {\"from\": \"billing@acmecorp.com\", \"subject\": \"Invoice INV-1101 \\u2014 Acme Corp\", \"attachments\": 0}\n[2026-10-06T04:21:16.102681+00:00] extract    actor=llm           extraction_ok\n    {\"attempts\": 1, \"reason\": null}\n[2026-10-06T04:21:16.103268+00:00] validate   actor=deterministic validation_complete\n    {\"issues\": []}\n[2026-10-06T04:21:16.103512+00:00] post       actor=deterministic auto_posted\n    {\"ledger_entry\": {\"invoice_number\": \"INV-1101\", \"vendor_name\": \"Acme Corp\", \"total\": 910.0, \"currency\": \"USD\", \"po_number\": \"PO-1001\", \"posted_ts\": \"2026-10-06T04:21:16.103382+00:00\"}}\n[2026-10-06T04:21:16.103581+00:00] pipeline   actor=deterministic outcome_auto_posted\n    {\"case_id\": \"case-001\", \"outcome\": \"auto_posted\", \"reasons\": [\"No validation issues; auto-posted.\"]}\n\n$ uv run apintake run --mock data/inbox/case-030.json\n[case-030] -> queued_for_review\n    - Subtotal (600.00) + tax (48.00) = 648.00, but total states 700.00.\n\n$ uv run apintake trail case-030\n[2026-10-06T04:21:22.389532+00:00] ingest     actor=deterministic case_loaded\n    {\"from\": \"invoices@keystonepack.com\", \"subject\": \"Invoice KP-4482\", \"attachments\": 0}\n[2026-10-06T04:21:22.390038+00:00] extract    actor=llm           extraction_ok\n    {\"attempts\": 1, \"reason\": null}\n[2026-10-06T04:21:22.390568+00:00] validate   actor=deterministic validation_complete\n    {\"issues\": [{\"code\": \"MATH_MISMATCH\", \"severity\": \"error\", \"message\": \"Subtotal (600.00) + tax (48.00) = 648.00, but total states 700.00.\"}]}\n[2026-10-06T04:21:22.391183+00:00] pipeline   actor=deterministic outcome_queued_blocking_errors\n    {\"case_id\": \"case-030\", \"outcome\": \"queued_for_review\", \"reasons\": [\"Subtotal (600.00) + tax (48.00) = 648.00, but total states 700.00.\"]}\n\n$ uv run apintake eval --mock\n# AP Intake Agent \u2014 Eval Report\n\nMode: mock (fixture-driven, hermetic)\nCases evaluated: 56\n**Overall pass rate: 52/56 (92.9%)**\n\n## Per-category breakdown\n\n| Category | Passed | Total | Pass rate |\n|---|---|---|---|\n| happy_path | 25 | 25 | 100% |\n| malformed_missing_fields | 3 | 3 | 100% |\n| math_mismatch | 3 | 3 | 100% |\n| unknown_vendor | 2 | 2 | 100% |\n| vendor_fuzzy_match | 3 | 3 | 100% |\n| missing_po | 2 | 2 | 100% |\n| po_over_budget | 2 | 2 | 100% |\n| duplicate_invoice | 2 | 2 | 100% |\n| price_drift | 3 | 3 | 100% |\n| forwarded_thread_noise | 2 | 2 | 100% |\n| attachment_only | 2 | 2 | 100% |\n| non_invoice | 3 | 3 | 100% |\n| boundary_threshold_cases | 0 | 4 | 0% |\n\n## Investigation \u2014 4 failing case(s)\n\n### case-053 (boundary_threshold_cases)\n- **Mismatch**: outcome: expected 'auto_posted', got 'queued_for_review'\n- **Root cause**: BOUNDARY CASE: naive expectation is 'Cascade Supplies' should fuzzy-match 'Cascade Office Supply' and judge-approve; actual normalized similarity (0.703) falls just under FUZZY_MATCH_CUTOFF=0.72, so find_vendor() returns no match at all and it hits UNKNOWN_VENDOR (blocking error) instead of ever reaching judge. See eval_report.md investigation.\n\n### case-054 (boundary_threshold_cases)\n- **Mismatch**: outcome: expected 'queued_for_review', got 'auto_posted'\n- **Root cause**: BOUNDARY CASE: unit price moved exactly 10.0% (22.00 -> 24.20); naive golden label assumed a round-number 10% jump would still get a second look, but validate.py's PRICE_DRIFT check is strictly '> 0.10', so exactly 10.0% does not trigger it and the case auto-posts with zero issues. See eval_report.md investigation.\n\n### case-055 (boundary_threshold_cases)\n- **Mismatch**: outcome: expected 'queued_for_review', got 'auto_posted'\n- **Root cause**: BOUNDARY CASE: naive golden label assumed confidence must be STRICTLY greater than 0.85 to auto-approve; judge.py's documented threshold is confidence >= 0.85, so this case actually auto-posts. On review this is a golden-label authoring error, not a system bug \u2014 see eval_report.md investigation.\n\n### case-056 (boundary_threshold_cases)\n- **Mismatch**: outcome: expected 'queued_for_review', got 'auto_posted'\n- **Root cause**: BOUNDARY CASE: invoice number 'INV-0500' coincidentally matches a ledger entry already posted for a DIFFERENT vendor (Acme Corp). Naive golden label assumed any invoice-number collision should be flagged; actual duplicate check is scoped to (vendor_name, invoice_number) pairs, per the DUPLICATE_INVOICE check in validate.py, so a different vendor with the same number does not trigger it and the case auto-posts. This is a real, documented scope limitation (see decision-log.md) rather than a bug \u2014 cross-vendor number collisions are common in practice and vendor-scoping is the correct default, but it's worth knowing the check won't catch this class.\n\n## How to read this report\n\nEvery failing case above is a genuine, traced root cause \u2014 not noise. Four of them (the `boundary_threshold_cases` category) are *deliberately* included: each one sits exactly on a documented threshold (fuzzy-match cutoff, price-drift percentage, judgment confidence, duplicate-detection scope) where a naive human expectation differs from the system's actual, documented behavior. See docs/decision-log.md for the full reasoning on each threshold. A production rollout would review these four specifically: two are threshold-tuning candidates, one is a golden-label authoring bug (not a system bug), and one is a scoping decision worth a product conversation.\n\n\nReport written to /Users/noelturlington/Claude/fde/ap-intake-agent/evals/eval_report.md\n\n$ grep -n \"Overall pass rate\" evals/eval_report.md\n5:**Overall pass rate: 52/56 (92.9%)**\n";
+const T = {start:600, header:1200, char:45, afterType:500, line:1200, evalLine:1000, gap:1500, hold:4000};
+const lines = TS.split("\n");
+// Build blocks: header (before first prompt), then one block per prompt.
+const blocks = []; let head = []; let cur = null;
+for (const l of lines) {
+  if (l.startsWith("$ ")) { cur = {cmd:l.slice(2), out:[]}; blocks.push(cur); }
+  else if (cur) cur.out.push(l); else head.push(l);
+}
+// Fixed schedule of events {t, fn}.
+const ev = []; let t = T.start;
+ev.push({t, k:"head"}); t += T.header;
+blocks.forEach((b, i) => {
+  ev.push({t, k:"prompt", i}); 
+  for (let c = 1; c <= b.cmd.length; c++) { t += T.char; ev.push({t, k:"type", i, c}); }
+  t += T.afterType;
+  const step = b.cmd.includes("eval") ? T.evalLine : T.line;
+  b.out.forEach((_, j) => { ev.push({t, k:"out", i, j}); t += step; });
+  if (i < blocks.length - 1) t += T.gap;
+});
+t += T.hold; ev.push({t, k:"done"});
+const TOTAL = t;
+window.REPLAY_TOTAL_MS = TOTAL;
+document.body.dataset.totalMs = String(TOTAL);
+
+const out = document.getElementById("out"), term = document.getElementById("term");
+const cursor = document.createElement("span"); cursor.className = "cur";
+let cmdSpan = null;
+function cls(l){
+  if (l.includes("Overall pass rate")) return "hi";
+  if (l.includes("queued_for_review") || l.includes("MATH_MISMATCH")) return "warn";
+  if (l.includes("auto_posted")) return "ok";
+  if (l.startsWith("# apintake")) return "cmt";
+  return "";
+}
+function add(text, c){ const d=document.createElement("div"); d.className="ln "+(c||""); d.textContent=text; out.appendChild(d); return d; }
+function scroll(){
+  const over = out.scrollHeight - (term.clientHeight - 36);
+  out.style.transform = "translateY(" + (over > 0 ? -over : 0) + "px)";
+}
+function run(e){
+  if (e.k === "head") head.forEach(l => add(l, cls(l)));
+  else if (e.k === "prompt") {
+    const d = add("", ""); const p = document.createElement("span"); p.className="cmd"; p.textContent="$ ";
+    cmdSpan = document.createElement("span"); cmdSpan.className="cmd";
+    d.append(p, cmdSpan, cursor); cursor.style.display="";
+  }
+  else if (e.k === "type") cmdSpan.textContent = blocks[e.i].cmd.slice(0, e.c);
+  else if (e.k === "out") { cursor.style.display="none"; const l = blocks[e.i].out[e.j]; add(l, cls(l)); }
+  else if (e.k === "done") { document.body.dataset.done = "1"; console.log("replay-done"); return; }
+  scroll();
+}
+const t0 = performance.now(); let n = 0;
+function tick(){
+  const now = performance.now() - t0;
+  while (n < ev.length && ev[n].t <= now) run(ev[n++]);
+  if (n < ev.length) setTimeout(tick, Math.max(0, Math.min(16, ev[n].t - now)));
+}
+tick();
+</script>
+</body></html>

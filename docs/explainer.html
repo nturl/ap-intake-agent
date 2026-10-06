@@ -1,0 +1,201 @@
+<title>AP Intake Agent</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root {
+  --bg: #f4f6f8; --surface: #ffffff; --fg: #1b2530; --muted: #56636f;
+  --line: #d5dce3; --accent: #1d6a86; --accent-soft: #e2eef3;
+  --code-bg: #e9edf1; --ok: #2c6e49; --warn: #8a5a12; --bad: #9b2f2f;
+  --focus: #1d6a86;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12171d; --surface: #19212a; --fg: #dde4ea; --muted: #97a4b0;
+    --line: #2c3743; --accent: #6db8d4; --accent-soft: #1c3440;
+    --code-bg: #1e2730; --ok: #7cc49a; --warn: #d9a956; --bad: #e08a8a;
+    --focus: #6db8d4; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12171d; --surface: #19212a; --fg: #dde4ea; --muted: #97a4b0;
+  --line: #2c3743; --accent: #6db8d4; --accent-soft: #1c3440;
+  --code-bg: #1e2730; --ok: #7cc49a; --warn: #d9a956; --bad: #e08a8a;
+  --focus: #6db8d4; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg); margin: 0;
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
+  font-size: 16px; line-height: 1.55;
+}
+.wrap { max-width: 46rem; margin-inline: auto; padding-inline: 16px; padding-block: 40px 56px; }
+h1, h2 { font-family: "Iowan Old Style", Charter, "Palatino Linotype", Georgia, serif; font-weight: 600; line-height: 1.2; }
+h1 { font-size: 2rem; margin: 0 0 4px; }
+h2 { font-size: 1.3rem; margin: 44px 0 10px; padding-top: 14px; border-top: 1px solid var(--line); }
+h3 { font-size: 1rem; margin: 18px 0 4px; }
+p, li { max-width: 65ch; }
+.kicker { color: var(--muted); font-size: .9rem; margin: 0 0 24px; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+code, pre { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .88em; }
+code { background: var(--code-bg); padding: 1px 4px; border-radius: 3px; overflow-wrap: anywhere; }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); margin: 12px 0; }
+pre { margin: 0; padding: 14px 16px; background: var(--code-bg); line-height: 1.5; }
+pre code { background: none; padding: 0; overflow-wrap: normal; }
+td code { white-space: nowrap; }
+.scroll table { min-width: 34rem; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; font-size: .92rem; }
+th, td { text-align: left; padding: 7px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; }
+tr:last-child td { border-bottom: 0; }
+td.n, th.n { text-align: right; }
+tr.fail td { color: var(--bad); }
+.figure { display: flex; flex-wrap: wrap; gap: 16px; align-items: baseline; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 6px; padding: 14px 18px; margin: 16px 0; }
+.figure > * { min-width: 0; }
+.figure strong { font-family: "Iowan Old Style", Charter, Georgia, serif; font-size: 2rem; font-variant-numeric: tabular-nums; }
+.figure span { color: var(--muted); }
+.flow { list-style: none; padding: 0; margin: 16px 0; counter-reset: st; }
+.flow li { counter-increment: st; display: grid; grid-template-columns: 2.2rem 1fr; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 10px 14px; margin: 0 0 8px; max-width: none; position: relative; }
+.flow li > div { min-width: 0; }
+.flow li::before { content: counter(st); font-family: ui-monospace, "SF Mono", Menlo, monospace; color: var(--accent); font-weight: 700; padding-top: 1px; }
+.flow .name { font-weight: 600; }
+.tag { display: inline-block; font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; padding: 1px 6px; border-radius: 3px; margin-left: 6px; border: 1px solid currentColor; }
+.t-det { color: var(--muted); } .t-llm { color: var(--accent); } .t-hum { color: var(--warn); }
+.flow .out { color: var(--muted); font-size: .9rem; margin: 2px 0 0; }
+.side { background: var(--accent-soft); border-radius: 6px; padding: 10px 14px; font-size: .92rem; }
+.decision { margin: 0 0 14px; }
+.decision time { color: var(--muted); font-size: .85rem; font-variant-numeric: tabular-nums; }
+footer { margin-top: 48px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+<div class="wrap">
+<h1>AP Intake Agent</h1>
+<p class="kicker">An accounts-payable invoice-intake agent. A demo built by Noel Turlington.</p>
+
+<h2>What it does</h2>
+<p>An email arrives with an invoice, in the body or as an attachment. The agent extracts structured invoice data, checks it against PO records, the vendor master and the payment ledger, and asks an LLM only when a case is genuinely ambiguous. It then posts to a mock ERP or queues the invoice for a person to approve, and logs every step to an append-only audit trail.</p>
+<div class="figure"><strong>52/56</strong><span>golden cases pass (92.9%), mock mode</span></div>
+
+<h2>Architecture</h2>
+<p>One case moves through <code>pipeline.py</code> in this order. Each stage is a module in <code>src/apintake/</code>.</p>
+<ol class="flow">
+  <li><div><span class="name">ingest.py</span><span class="tag t-det">deterministic</span><p class="out">Loads the raw message and attachments from <code>data/inbox/</code>.</p></div></li>
+  <li><div><span class="name">extract.py</span><span class="tag t-llm">LLM, cheap</span><p class="out">Pulls invoice fields into a strict Pydantic schema. One retry with the error fed back. Not an invoice: rejected. Failed twice: queued for review.</p></div></li>
+  <li><div><span class="name">validate.py</span><span class="tag t-det">deterministic</span><p class="out">Math, PO, vendor, duplicate and price-history checks. Zero issues: post. Blocking error: queue. Ambiguous warning only: judge.</p></div></li>
+  <li><div><span class="name">judge.py</span><span class="tag t-llm">LLM, stronger</span><p class="out">Runs only on ambiguous warnings. Approve with confidence &gt;= 0.85: post. Anything else: queue.</p></div></li>
+  <li><div><span class="name">approve.py</span><span class="tag t-hum">human</span><p class="out">Review queue (<code>apintake review</code>). A person approves, which posts, or rejects.</p></div></li>
+  <li><div><span class="name">post.py</span><span class="tag t-det">deterministic</span><p class="out">Appends the invoice to the mock ERP ledger.</p></div></li>
+  <li><div><span class="name">audit.py</span><span class="tag t-det">deterministic</span><p class="out">Every stage writes an event here with its actor: deterministic, llm or human. <code>apintake trail &lt;case_id&gt;</code> prints one case's trail.</p></div></li>
+</ol>
+
+<h2>Deterministic, LLM or human</h2>
+<div class="scroll"><table>
+<thead><tr><th>Stage</th><th>Actor</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td><code>ingest.py</code></td><td>Deterministic</td><td>File I/O and schema parsing.</td></tr>
+<tr><td><code>extract.py</code></td><td>LLM (<code>claude-haiku-4-5</code>)</td><td>Reads messy real-world text. Output is checked by a strict schema, retried once, then sent to a human.</td></tr>
+<tr><td><code>validate.py</code></td><td>Deterministic</td><td>Lookups and arithmetic. Exhaustively testable.</td></tr>
+<tr><td><code>judge.py</code></td><td>LLM (<code>claude-sonnet-5</code>)</td><td>Fuzzy vendor names, missing PO, price drift. Confidence below 0.85 always goes to a human.</td></tr>
+<tr><td><code>post.py</code></td><td>Deterministic</td><td>A file append.</td></tr>
+<tr><td><code>approve.py</code></td><td>Human</td><td>Anything the pipeline cannot resolve with confidence. No money moves until a person decides.</td></tr>
+<tr><td><code>audit.py</code></td><td>Deterministic</td><td>Logs every transition with the actor that made the call.</td></tr>
+</tbody></table></div>
+<p>The pipeline has 2 LLM call sites. In the golden dataset, 38 of 56 cases resolve with no LLM decision affecting the outcome.</p>
+
+<h2>Eval results</h2>
+<div class="figure"><strong>92.9%</strong><span>52 of 56 cases, mock mode, fixture-driven and hermetic</span></div>
+<div class="scroll"><table>
+<thead><tr><th>Category</th><th class="n">Passed</th><th class="n">Total</th><th class="n">Pass rate</th></tr></thead>
+<tbody>
+<tr><td>happy_path</td><td class="n">25</td><td class="n">25</td><td class="n">100%</td></tr>
+<tr><td>malformed_missing_fields</td><td class="n">3</td><td class="n">3</td><td class="n">100%</td></tr>
+<tr><td>math_mismatch</td><td class="n">3</td><td class="n">3</td><td class="n">100%</td></tr>
+<tr><td>unknown_vendor</td><td class="n">2</td><td class="n">2</td><td class="n">100%</td></tr>
+<tr><td>vendor_fuzzy_match</td><td class="n">3</td><td class="n">3</td><td class="n">100%</td></tr>
+<tr><td>missing_po</td><td class="n">2</td><td class="n">2</td><td class="n">100%</td></tr>
+<tr><td>po_over_budget</td><td class="n">2</td><td class="n">2</td><td class="n">100%</td></tr>
+<tr><td>duplicate_invoice</td><td class="n">2</td><td class="n">2</td><td class="n">100%</td></tr>
+<tr><td>price_drift</td><td class="n">3</td><td class="n">3</td><td class="n">100%</td></tr>
+<tr><td>forwarded_thread_noise</td><td class="n">2</td><td class="n">2</td><td class="n">100%</td></tr>
+<tr><td>attachment_only</td><td class="n">2</td><td class="n">2</td><td class="n">100%</td></tr>
+<tr><td>non_invoice</td><td class="n">3</td><td class="n">3</td><td class="n">100%</td></tr>
+<tr class="fail"><td>boundary_threshold_cases</td><td class="n">0</td><td class="n">4</td><td class="n">0%</td></tr>
+</tbody></table></div>
+<p>The four failures are intentional. Cases 053 to 056 each sit on a documented threshold, and their golden labels encode a plausible naive expectation:</p>
+<ul>
+<li><strong>case-053:</strong> "Cascade Supplies" scores 0.703 against "Cascade Office Supply", just under the 0.72 fuzzy cutoff. It queues as an unknown vendor. A tuning candidate.</li>
+<li><strong>case-054:</strong> price moved exactly 10.0% (22.00 to 24.20). The drift check is strictly greater than 10%, so it auto-posts. A product question.</li>
+<li><strong>case-055:</strong> the label assumed confidence must exceed 0.85. The code uses &gt;= 0.85. The label is wrong, the system is right.</li>
+<li><strong>case-056:</strong> invoice number INV-0500 matches a posted invoice from a different vendor. Duplicate detection is vendor-scoped, so it auto-posts. A known scope limit.</li>
+</ul>
+
+<h2>Failure handling</h2>
+<p>Only non-invoices are rejected automatically. Every other failure goes to the review queue with its reasons, and every step lands in the audit trail.</p>
+<ul>
+<li><strong>Math mismatch:</strong> blocking error in <code>validate.py</code>. Queued for review with the exact reason. Never auto-approved.</li>
+<li><strong>Duplicate invoice:</strong> same vendor and invoice number as a ledger entry. Blocking error, queued. No LLM involved.</li>
+<li><strong>Missing PO:</strong> one of the ambiguous issues sent to <code>judge.py</code>. A confident approval posts. Anything else queues with the model's rationale.</li>
+<li><strong>Low confidence:</strong> confidence below 0.85, or a reject or escalate decision, goes to the queue. The reviewer sees why the system was unsure.</li>
+<li><strong>Extraction fails twice:</strong> queued for review. No crash, no silent bad data.</li>
+<li><strong>No API key and no <code>--mock</code>:</strong> prints a message and falls back to mock mode.</li>
+</ul>
+<p class="side">The review queue (<code>apintake review</code>) shows the reasons, the extracted invoice and the resolved vendor name. The audit trail is append-only JSONL; <code>apintake trail &lt;case_id&gt;</code> prints it.</p>
+
+<h2>How to run</h2>
+<p>Mock mode needs no API key. It reads fixture data instead of calling the API.</p>
+<div class="scroll"><pre><code>cd ap-intake-agent
+uv sync
+
+# Run the eval harness (hermetic, mock mode, no API key needed)
+uv run apintake eval --mock
+
+# Run one case end-to-end and inspect its audit trail
+uv run apintake run --mock data/inbox/case-001.json
+uv run apintake trail case-001
+
+# Run every case in the inbox
+uv run apintake run --mock --all
+
+# Work the human review queue interactively (approve/reject)
+uv run apintake review</code></pre></div>
+<p>Real mode needs <code>ANTHROPIC_API_KEY</code>: drop <code>--mock</code> from any <code>run</code> or <code>eval</code> command.</p>
+
+<h2>Cost tiering and ROI</h2>
+<p>Extraction uses the cheap model, <code>claude-haiku-4-5</code>. Judgment uses the stronger <code>claude-sonnet-5</code>, because its opinion decides whether money moves without a human.</p>
+<p>The ROI memo models an SMB processing 120 invoices a week (6,240 a year). The outcome mix is measured from the mock eval run:</p>
+<div class="scroll"><table>
+<thead><tr><th>Outcome</th><th class="n">Share</th><th class="n">Per week at 120</th></tr></thead>
+<tbody>
+<tr><td>auto_posted</td><td class="n">38/56 = 67.9%</td><td class="n">81.5</td></tr>
+<tr><td>queued_for_review</td><td class="n">15/56 = 26.8%</td><td class="n">32.1</td></tr>
+<tr><td>rejected</td><td class="n">3/56 = 5.4%</td><td class="n">6.4</td></tr>
+</tbody></table></div>
+<div class="scroll"><table>
+<thead><tr><th>Bucket</th><th class="n">Annual estimate</th></tr></thead>
+<tbody>
+<tr><td>Labor savings (1,040 hrs/yr down to 186)</td><td class="n">≈$29,900</td></tr>
+<tr><td>Duplicate payments avoided (≈19/yr)</td><td class="n">≈$28,500</td></tr>
+<tr><td>Early-payment discounts captured</td><td class="n">≈$14,040</td></tr>
+<tr><td><strong>Total</strong></td><td class="n"><strong>≈$72,440</strong></td></tr>
+</tbody></table></div>
+<p>Assumptions, all placeholders for client data: 10 min per invoice manual; 1 min per auto-posted, 4 min per queued, 0.5 min per rejected; $35/hr staff cost; $1,500 average invoice; 0.3% baseline duplicate rate; 15% of invoices with early-payment terms at 2%; capture rising from about 0% to 50%. The memo excludes build cost, API spend and review staffing.</p>
+
+<h2>Decisions</h2>
+<div class="decision"><time>2026-07-21</time><h3>Auto-post on zero issues, or a judged approval at high confidence</h3><p>Otherwise the judgment step would never resolve anything by itself.</p></div>
+<div class="decision"><time>2026-07-21</time><h3>Never auto-reject a real invoice</h3><p>Only non-invoices are rejected. Auto-rejecting a business failure could discard a legitimate invoice no one ever sees.</p></div>
+<div class="decision"><time>2026-07-21</time><h3>Duplicate detection scoped to vendor and invoice number</h3><p>Invoice numbers collide across vendors. The cost: a spoofed number under a different vendor name gets through.</p></div>
+<div class="decision"><time>2026-07-21</time><h3>Haiku for extraction, Sonnet for judgment</h3><p>Effort scales with how much the decision matters.</p></div>
+<div class="decision"><time>2026-07-21</time><h3>Eval runs on isolated scratch copies</h3><p>Repeatable runs, and duplicate checks do not depend on case order.</p></div>
+<div class="decision"><time>2026-07-21</time><h3>Four boundary failures kept in the golden set</h3><p>They expose real threshold choices instead of reporting 100%.</p></div>
+
+<h2>Limits</h2>
+<ul>
+<li>The ERP, vendor master and PO records are mock JSON fixtures, not a live system.</li>
+<li>All 56 cases are synthetic.</li>
+<li>The same author wrote the pipeline and the golden labels. One label (case-055) was itself wrong.</li>
+<li>Mock mode reads fixtures, so the eval never exercises the LLM calls. The real-mode path was not run during this build because no API key was present; the only earlier live run on record is the 2026-07-21 session whose ledger write was reset before the first commit.</li>
+<li>Duplicate detection misses invoice-number reuse across vendors.</li>
+<li>The ROI split comes from this synthetic dataset. A real client's mix will differ.</li>
+</ul>
+
+<footer>Sources: README.md, docs/decision-log.md, docs/ROI-memo.md, evals/eval_report.md, src/apintake/pipeline.py.</footer>
+</div>

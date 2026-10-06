@@ -1,0 +1,18 @@
+# Record command (option names from `shot-scraper video --help`):
+#   /Users/noelturlington/.local/bin/shot-scraper video /Users/noelturlington/Claude/fde/ap-intake-agent/docs/demo/storyboard.yml -o /Users/noelturlington/Claude/overnight/runs/fde-demo-targets/evidence/apintake-replay.webm --mp4 --timeout 114165
+# --mp4 also writes apintake-replay.mp4 beside the webm (needs ffmpeg).
+# Playback total is 109165 ms (window.REPLAY_TOTAL_MS). The scene waits for
+# body[data-done="1"]; --timeout 114165 (total + 5 s) bounds that wait.
+output: /Users/noelturlington/Claude/overnight/runs/fde-demo-targets/evidence/apintake-replay.webm
+url: file:///Users/noelturlington/Claude/fde/ap-intake-agent/docs/demo/replay.html
+viewport:
+  width: 1280
+  height: 720
+cursor: false
+wait_for: "#out"
+
+scenes:
+  - name: Replay the apintake mock session
+    do:
+      - wait_for: 'body[data-done="1"]'
+      - pause: 2
